@@ -11,6 +11,9 @@ class Service {
       where: {
         isBelongToTheMockUser,
       },
+      include: {
+        vehicle: true,
+      },
     });
   }
 
