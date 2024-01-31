@@ -1,26 +1,31 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
-model Post {
-  id          String   @id @default(cuid())
-  slug        String   @unique
-  title       String
-  excerpt     String
-  tags        String[]
-  headImg     String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  readTime    Int?
-  readingMins String?
-  published   Boolean  @default(false)
-  content     String
+model Cert {
+  id                  String      @id @default(auto()) @map("_id") @db.ObjectId
+  image               String
+  name                String
+  tokenId             String
+  nftUrl              String
+  openseaUrl          String
+  deactivatedAt       DateTime?
+  isSvcroUnderSyncing Boolean     @default(false)
+  lastRecordedAt      DateTime?
+  vehicle             Vehicle?
+}
+
+model Vehicle {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  cert      Cert?   @relation(fields: [certId], references: [id])
+  certId    String  @db.ObjectId @unique
+  regoNo    String
+  modelCode String
+  extColour String
+  intColour String
 }
