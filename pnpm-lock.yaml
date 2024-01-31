@@ -35,9 +35,6 @@ dependencies:
   express:
     specifier: ^4.18.2
     version: 4.18.2
-  prisma:
-    specifier: ^5.9.0
-    version: 5.9.0
   reflect-metadata:
     specifier: ^0.2.1
     version: 0.2.1
@@ -94,6 +91,9 @@ devDependencies:
   prettier:
     specifier: ^3.2.4
     version: 3.2.4
+  prisma:
+    specifier: ^5.9.0
+    version: 5.9.0
   shell-quote:
     specifier: ^1.8.1
     version: 1.8.1
@@ -1362,11 +1362,9 @@ packages:
 
   /@prisma/debug@5.9.0:
     resolution: {integrity: sha512-3Uhj5YSPqaIfzJQ6JQzCNBXeBTy0x803fGIoo2tvP/KIEd+o4o49JxCQtKtP8aeef5iNh5Nn9Z25wDrdLjS80A==}
-    dev: false
 
   /@prisma/engines-version@5.9.0-32.23fdc5965b1e05fc54e5f26ed3de66776b93de64:
     resolution: {integrity: sha512-HFl7275yF0FWbdcNvcSRbbu9JCBSLMcurYwvWc8WGDnpu7APxQo2ONtZrUggU3WxLxUJ2uBX+0GOFIcJeVeOOQ==}
-    dev: false
 
   /@prisma/engines@5.9.0:
     resolution: {integrity: sha512-BH1fpXbMH09TwfZH5FVMJwRp6afEhKzqwebbCLdaEkJDuhxA//iwbILLqGFtGTgZbdBNUOThIK+UC3++5kWMTg==}
@@ -1376,7 +1374,6 @@ packages:
       '@prisma/engines-version': 5.9.0-32.23fdc5965b1e05fc54e5f26ed3de66776b93de64
       '@prisma/fetch-engine': 5.9.0
       '@prisma/get-platform': 5.9.0
-    dev: false
 
   /@prisma/fetch-engine@5.9.0:
     resolution: {integrity: sha512-NL8Vm8Vl2d6NOSkkPGN5TTTz4s6cyCleXOzqtOFWzfKFJ4wtN2Shu7llOT+ykf6nDzh1lCN2JHUt1S6FGFZGig==}
@@ -1384,13 +1381,11 @@ packages:
       '@prisma/debug': 5.9.0
       '@prisma/engines-version': 5.9.0-32.23fdc5965b1e05fc54e5f26ed3de66776b93de64
       '@prisma/get-platform': 5.9.0
-    dev: false
 
   /@prisma/get-platform@5.9.0:
     resolution: {integrity: sha512-8CatX+E6eZxcOjJZe5hF8EXxdb5GsQTA/u7pdmUJSxGLacW9K3r5vDdgV8s22PubObQQ6979/rkCMItbCrG4Yg==}
     dependencies:
       '@prisma/debug': 5.9.0
-    dev: false
 
   /@rollup/rollup-android-arm-eabi@4.9.6:
     resolution: {integrity: sha512-MVNXSSYN6QXOulbHpLMKYi60ppyO13W9my1qogeiAqtjb2yR4LSmfU2+POvDkLzhjYLXz9Rf9+9a3zFHW1Lecg==}
@@ -5003,7 +4998,6 @@ packages:
     requiresBuild: true
     dependencies:
       '@prisma/engines': 5.9.0
-    dev: false
 
   /process-nextick-args@2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
