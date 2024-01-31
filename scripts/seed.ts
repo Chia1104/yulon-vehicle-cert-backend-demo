@@ -32,6 +32,7 @@ async function main() {
         deactivatedAt: new Date(),
         isSvcroUnderSyncing: false,
         lastRecordedAt: new Date(),
+        isBelongToTheMockUser: false,
       },
     });
 

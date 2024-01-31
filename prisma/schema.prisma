@@ -8,16 +8,17 @@ datasource db {
 }
 
 model Cert {
-  id                  String      @id @default(auto()) @map("_id") @db.ObjectId
-  image               String
-  name                String
-  tokenId             String
-  nftUrl              String
-  openseaUrl          String
-  deactivatedAt       DateTime?
-  isSvcroUnderSyncing Boolean     @default(false)
-  lastRecordedAt      DateTime?
-  vehicle             Vehicle?
+  id                    String      @id @default(auto()) @map("_id") @db.ObjectId
+  image                 String
+  name                  String
+  tokenId               String
+  nftUrl                String
+  openseaUrl            String
+  deactivatedAt         DateTime?
+  isSvcroUnderSyncing   Boolean     @default(false)
+  lastRecordedAt        DateTime?
+  vehicle               Vehicle?
+  isBelongToTheMockUser Boolean   @default(false)
 }
 
 model Vehicle {
