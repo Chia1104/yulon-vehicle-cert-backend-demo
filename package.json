@@ -17,7 +17,7 @@
     "type:check": "tsc --noEmit",
     "clean": "git clean -xdf dist .turbo node_modules",
     "db:push": "prisma db push",
-    "db:seed": "ts-node --transpile-only scripts/seed.ts"
+    "db:seed": "node --import=tsx --env-file=.env scripts/seed.ts"
   },
   "dependencies": {
     "@nestjs/common": "^10.3.1",
@@ -56,8 +56,8 @@
     "supertest": "^6.3.4",
     "ts-jest": "29.1.2",
     "ts-loader": "^9.5.1",
-    "ts-node": "^10.9.2",
     "tsconfig-paths": "4.2.0",
+    "tsx": "^4.7.0",
     "turbo": "^1.12.0",
     "typescript": "^5.3.3",
     "vitest": "^1.2.2",
