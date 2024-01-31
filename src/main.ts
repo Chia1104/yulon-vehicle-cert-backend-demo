@@ -1,6 +1,7 @@
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
+import { X_AUTH_TOKEN } from "./commons/middlewares/auth-token.middleware";
 
 const getCORSAllowedOrigin = (): string[] | boolean => {
   if (!process.env.CORS_ALLOWED_ORIGIN) return false;
@@ -22,9 +23,13 @@ async function bootstrap() {
     },
   });
   const config = new DocumentBuilder()
-    .setTitle("NestJS Example")
-    .setVersion("1.0")
-    .addBearerAuth()
+    .setTitle("Yulon Vehicle Cert Backend")
+    .setVersion("demo")
+    .addSecurity(X_AUTH_TOKEN, {
+      type: "apiKey",
+      in: "header",
+      name: X_AUTH_TOKEN,
+    })
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup("api/documentation", app, document);

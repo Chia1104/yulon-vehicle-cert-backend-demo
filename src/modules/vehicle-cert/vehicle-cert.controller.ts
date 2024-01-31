@@ -6,13 +6,20 @@ import {
   Query,
   ParseBoolPipe,
 } from "@nestjs/common";
-import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
+import {
+  ApiOperation,
+  ApiResponse,
+  ApiTags,
+  ApiSecurity,
+} from "@nestjs/swagger";
 import Service from "./vehicle-cert.service";
 import { Prisma } from "@prisma/client";
 import { ParseObjectIdPipe } from "@/commons/pipe/parse-objectId.pipe";
+import { X_AUTH_TOKEN } from "@/commons/middlewares/auth-token.middleware";
 
 @ApiTags("Cert")
 @Controller("cert")
+@ApiSecurity(X_AUTH_TOKEN)
 class VehicleCertController {
   constructor(private readonly service: Service) {}
 

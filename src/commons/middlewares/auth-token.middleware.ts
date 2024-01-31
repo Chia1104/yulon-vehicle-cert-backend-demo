@@ -5,7 +5,7 @@ import {
   BadRequestException,
 } from "@nestjs/common";
 
-const X_AUTH_TOKEN = "x-auth-token";
+export const X_AUTH_TOKEN = "x-auth-token";
 
 @Injectable()
 export class AuthTokenMiddleware implements NestMiddleware {
