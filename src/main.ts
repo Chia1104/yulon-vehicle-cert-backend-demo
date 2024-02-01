@@ -2,6 +2,7 @@ import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import { X_AUTH_TOKEN } from "./commons/middlewares/auth-token.middleware";
+import { TimeoutInterceptor } from "./commons/interceptors/timeout.interceptor";
 
 const getCORSAllowedOrigin = (): string[] | boolean => {
   if (!process.env.CORS_ALLOWED_ORIGIN) return false;
@@ -22,6 +23,7 @@ async function bootstrap() {
       exposedHeaders: ["retry-after"],
     },
   });
+  app.useGlobalInterceptors(new TimeoutInterceptor());
   const config = new DocumentBuilder()
     .setTitle("Yulon Vehicle Cert Backend")
     .setVersion("demo")

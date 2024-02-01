@@ -5,6 +5,7 @@ import {
   Patch,
   Query,
   ParseBoolPipe,
+  HttpCode,
 } from "@nestjs/common";
 import {
   ApiOperation,
@@ -32,17 +33,18 @@ class VehicleCertController {
     isBelongToTheMockUser: boolean
   ) {
     const certs = await this.service.getAll(isBelongToTheMockUser);
-    if (!certs) throw new NotFoundException("Post not found");
+    if (!certs) throw new NotFoundException("Cert not found");
     return certs;
   }
 
   @Patch("/belongsToTheMockUser")
+  @HttpCode(204)
   @ApiOperation({ summary: "Belong to the mock user" })
   @ApiResponse({ status: 404, description: "Not Found." })
   @ApiResponse({ status: 204, description: "No Content." })
   async belongToTheMockUser(@Query("id", ParseObjectIdPipe) id: string) {
     try {
-      await this.service.belongToTheMockUser(id);
+      return await this.service.belongToTheMockUser(id);
     } catch (e) {
       if (e instanceof Prisma.PrismaClientKnownRequestError) {
         switch (e.code) {
